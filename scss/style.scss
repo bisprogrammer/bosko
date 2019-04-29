@@ -1,0 +1,97 @@
+body {
+    margin: 0;
+}
+
+h2 {
+    color: #ffffff;
+    display: inline-block;
+}
+
+p {
+    font-size: 18px;
+}
+
+.wrap {
+    height: 100%;
+    width: 1170px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.header, .footer {
+    height: 100px;
+    background: #000000;
+    text-align: center;
+}
+
+.header .wrap::before, .footer .wrap::before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.content__item {
+    border: 1px solid;
+    padding: 40px;
+}
+
+
+//1й способ
+
+//.content__items {
+//    display: flex;
+//}
+//
+//.content__item {
+//    width: 33.3%;
+//}
+
+//2й способ
+//.content__items::after {
+//    content: "";
+//    display: table;
+//    clear: both;
+//}
+//
+//.content__item {
+//    float: left;
+//    width: 33.3%;
+//    box-sizing: border-box;
+//}
+
+
+//3й способ
+//.content__items {
+//    font-size: 0;
+//}
+//
+//.content__item {
+//    display: inline-block;
+//    vertical-align: top;
+//    width: 33.3%;
+//    box-sizing: border-box;
+//}
+
+
+//4й способ
+//.content__items {
+//    display: table;
+//    width: 100%;
+//}
+//
+//.content__item {
+//    display: table-cell;
+//    width: 33.3%;
+//}
+
+
+//5й способ
+.content__items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
+
+// здесь показал 5 разных способов верстки сетки. Только гриды и флексы используюся конкретно для сеток. Но эти свойства не поддерживают старые браузера, такие как ie9-11, 5 версия сафари и т.д. Для таких браузеров нужно использовать свойства float, либо inline-block для display. В таком случае на чистом css нужно явно задавать высоту для всех блоков, чтобы сделать все блоки одинаковыми по высоте. Также есть способ использования свойства display table и сделать прямых потомков ячейками таблицы. Но у этого способа есть сложности при адаптиции верстки. 
